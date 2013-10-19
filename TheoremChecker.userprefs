@@ -1,0 +1,32 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="TheoremChecker/ReiterateRule.cs">
+    <Files>
+      <File FileName="TheoremChecker/Program.cs" Line="1" Column="1" />
+      <File FileName="TheoremChecker/IRule.cs" Line="8" Column="33" />
+      <File FileName="TheoremChecker/IStatement.cs" Line="10" Column="1" />
+      <File FileName="TheoremChecker/SentenceVariableStatement.cs" Line="11" Column="4" />
+      <File FileName="TheoremChecker/ReiterateRule.cs" Line="11" Column="18" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="TheoremChecker" expanded="True" selected="True" />
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+      <Pad Id="ConnectionManagerPad">
+        <State selected="True" />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
