@@ -24,12 +24,20 @@ namespace TheoremChecker
 		public override bool Equals (object obj)
 		{
 			var castObj = obj as NegationStatement;
-			return Object.Equals(NegatedStatement, castObj.NegatedStatement);
+
+			if (castObj == null)
+				return false;
+			else
+				return Object.Equals(NegatedStatement, castObj.NegatedStatement);
 		}
 
 		public override string ToString ()
 		{
 			return string.Format ("~{0}", NegatedStatement);
+		}
+
+		public NegationStatement Derive(Func<IStatement, IStatement> derivation) {
+			return new NegationStatement (derivation(NegatedStatement));
 		}
 	}
 }

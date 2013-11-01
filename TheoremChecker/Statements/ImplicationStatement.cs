@@ -2,31 +2,19 @@ using System;
 
 namespace TheoremChecker
 {
-	public class ImplicationStatement : IStatement
+	public class ImplicationStatement : ConnectiveStatement
 	{
-		public ImplicationStatement (IStatement antecedent, IStatement consequent)
-		{
-			if (antecedent == null)
-				throw new ArgumentNullException ("antecedent");
+		public ImplicationStatement(IStatement antecedent, IStatement consequent) : base(antecedent, consequent) {}
 
-			if (consequent == null)
-				throw new ArgumentNullException ("consequent");
-
-			_Antecedent = antecedent;
-			_Consequent = consequent;
-		}
-
-		private readonly IStatement _Antecedent;
 		public IStatement Antecedent {
 			get {
-				return _Antecedent;
+				return LeftHand;
 			}
 		}
 
-		private readonly IStatement _Consequent;
 		public IStatement Consequent {
 		get {
-				return _Consequent;
+				return RightHand;
 			}
 		}
 
@@ -43,6 +31,11 @@ namespace TheoremChecker
 		public override string ToString ()
 		{
 			return string.Format ("({0} \x2192 {1})", Antecedent, Consequent);
+		}
+
+		public override ConnectiveStatement Derive (Func<IStatement, IStatement> leftDerivation, Func<IStatement, IStatement> rightDerivation)
+		{
+			return new ImplicationStatement (leftDerivation (LeftHand), rightDerivation (RightHand));
 		}
 	}
 }

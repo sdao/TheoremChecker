@@ -56,6 +56,30 @@ namespace TheoremChecker
 		}
 
 		/**
+		 * Justifies the statement on the basis that it is equivalent to another
+		 * on the basis of Double Negation replacement.
+		 */
+		public static DoubleNegationRule DN(ProofLine template) {
+			return new DoubleNegationRule (template);
+		}
+
+		/**
+		 * Justifies the statement on the basis that it is equivalent to another
+		 * on the basis of Material Implication replacement.
+		 */
+		public static MaterialImplicationRule Impl(ProofLine template) {
+			return new MaterialImplicationRule (template);
+		}
+
+		/**
+		 * Justifies the statement on the basis that it is equivalent to another
+		 * on the basis of De Mogan's Rule replacement.
+		 */
+		public static DeMorgansRule DeM(ProofLine template) {
+			return new DeMorgansRule (template);
+		}
+
+		/**
 		 * Creates a new statement with only a statement letter.
 		 */
 		public static StatementLetter Letter(String name) {
@@ -133,6 +157,41 @@ namespace TheoremChecker
 		 */
 		public static ConjunctionStatement And(this IStatement left, string right) {
 			return new ConjunctionStatement (left, Letter (right));
+		}
+
+		/**
+		 * Conjoins a statement letter with a statement.
+		 */
+		public static ConjunctionStatement And(this string left, IStatement right) {
+			return new ConjunctionStatement (Letter(left), right);
+		}
+
+		/**
+		 * Disjoins two statements.
+		 */
+		public static DisjunctionStatement Or(this IStatement left, IStatement right) {
+			return new DisjunctionStatement (left, right);
+		}
+
+		/**
+		 * Disjoins two statement letters.
+		 */
+		public static DisjunctionStatement Or(this string left, string right) {
+			return new DisjunctionStatement (Letter (left), Letter (right));
+		}
+
+		/**
+		 * Disjoins a statement with a statement letter.
+		 */
+		public static DisjunctionStatement Or(this IStatement left, string right) {
+			return new DisjunctionStatement (left, Letter (right));
+		}
+
+		/**
+		 * Disjoins a statement letter with a statement.
+		 */
+		public static DisjunctionStatement Or(this string left, IStatement right) {
+			return new DisjunctionStatement (Letter(left), right);
 		}
 	}
 }

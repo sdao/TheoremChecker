@@ -43,20 +43,24 @@
     <Compile Include="Rules\ConjunctionIntroductionRule.cs" />
     <Compile Include="Rules\IRule.cs" />
     <Compile Include="Rules\PremissRule.cs" />
-    <Compile Include="Statement\IStatement.cs" />
-    <Compile Include="Statement\StatementLetter.cs" />
-    <Compile Include="Statement\ConjunctionStatement.cs" />
-    <Compile Include="Statement\ImplicationStatement.cs" />
     <Compile Include="Rules\ReiterateRule.cs" />
     <Compile Include="Rules\ModusPonensRule.cs" />
     <Compile Include="Rules\ModusTollensRule.cs" />
-    <Compile Include="Statement\NegationStatement.cs" />
     <Compile Include="Rules\DoubleNegationRule.cs" />
-    <Compile Include="Rules\IReplacementRule.cs" />
+    <Compile Include="Statements\StatementLetter.cs" />
+    <Compile Include="Statements\ConjunctionStatement.cs" />
+    <Compile Include="Statements\ImplicationStatement.cs" />
+    <Compile Include="Statements\NegationStatement.cs" />
+    <Compile Include="Statements\IStatement.cs" />
+    <Compile Include="Statements\ConnectiveStatement.cs" />
+    <Compile Include="Rules\ReplacementRule.cs" />
+    <Compile Include="Statements\DisjunctionStatement.cs" />
+    <Compile Include="Rules\MaterialImplicationRule.cs" />
+    <Compile Include="Rules\DeMorgansRule.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Rules\" />
-    <Folder Include="Statement\" />
+    <Folder Include="Statements\" />
   </ItemGroup>
 </Project>

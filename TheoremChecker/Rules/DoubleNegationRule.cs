@@ -2,16 +2,28 @@ using System;
 
 namespace TheoremChecker
 {
-	public class DoubleNegationRule : IReplacementRule
+	public class DoubleNegationRule : ReplacementRule
 	{
-		public DoubleNegationRule (ProofLine doubleNegationLine)
+		public DoubleNegationRule (ProofLine doubleNegationLine) : base (doubleNegationLine) {}
+
+		protected override IStatement Normalize (IStatement statement)
 		{
+			if (statement is NegationStatement) {
+				NegationStatement ns = statement as NegationStatement;
+
+				if (ns.NegatedStatement is NegationStatement) {
+					NegationStatement innerNs = ns.NegatedStatement as NegationStatement;
+
+					return innerNs.NegatedStatement;
+				}
+			}
+
+			return statement;
 		}
 
-		private readonly IStatement _DoubleNegationLine;
-
-		public bool Validate(IStatement statement) {
-			return false;
+		public override string ToString ()
+		{
+			return "DN";
 		}
 	}
 }
